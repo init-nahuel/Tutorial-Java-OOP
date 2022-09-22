@@ -84,19 +84,21 @@ En Java si no se crea el constructor de la respectiva clase, se crea uno por def
 
 # Sobreescribir metodos (Method Overriding)
 
-Un **overrinding de metodos** es una instancia de un metodo en una subclase tal que posee la misma firma que posee este metodo en la superclase pero que sobreescribe este ultimo.
+**Un overrinding de metodos es una instancia de un metodo en una subclase tal que posee la misma firma que posee este metodo en la superclase pero que sobreescribe este ultimo.**
 
 Que posea la misma firma implica que el metodo posee el mismo nombre, numero y tipos de los parametros.
 
 * **Method signature:** name + number of parameters + type of its parameters
-* 
-En Java el tipo del valor retornado del metodo puede ser un una subclase de la clase base. Ejemplo:
+* **En Java el tipo del valor retornado del metodo puede ser un una subclase de la clase base**. Ejemplo:
 
 ```java
 public class ColorPoint extends Point{
   ColorPoint add(Point anotherPoint);
 }
 ```
+
+**OBS:** Al hacer un override de 'equals()' podemos observar este caso, pues cambia el tipo del parametro que recibe, a la clase en la cual se sobreescribe, sin embargo hay que recordar que todas las clases heredan de la clase 'Object' en Java.
+
 * **En base a la firma se busca al metodo que se debe llamar en una jerarquia de clases.**
 
 # Sobrecarga de metodos (Method Overloading)
