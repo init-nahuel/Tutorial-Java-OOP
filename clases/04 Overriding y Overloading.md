@@ -176,11 +176,14 @@ public class Movie{
 
   @Override
   public boolean equals(Object o) {
-    if (o instanceof Movie) {
-      return ((Movie) o).title.equals(this.title) && 
-             ((Movie) o).author.equals(this.author);
+    if (this == o) {
+      return true;
     }
-    return false;
+    if (!(o instanceof Movie)) {
+      return false;
+    }
+    Movie movie = (Movie) o;
+    return movie.title.equals(this.title) && movie.author.equals(this.author);
   }
 }
 ```
@@ -190,3 +193,52 @@ public class Movie{
 * `obj instanceof class`: Operador para comparar si un objeto `obj` es de la clase `class`, retorna `true` si lo es y `false` en caso contrario.
 
 **Se considera un buen diseño de programacion indicar al inicio de un metodo si este es un override u overload**
+
+# Metodo `equals()` y `hashcode()`
+
+Algunas observaciones respecto al metodo `equals()` son las siguientes:
+
+* **El operador `==` se utiliza solo para comparar referencias, chequea si ambas referencias apuntan al mismo lugar en memoria, usualmente se utiliza para comparar valores de tipo `int` por ejemplo. El metodo `equals()` se utiliza para comparar contenido, evalua el contenido del objeto chequeando si cumple el contrato de `equals()`.**
+  * **Contrato del metodo `equals()`**: Este metodo debe cumplir con las siguientes relaciones:
+    * Reflexiva: Un objeto debe ser igual a él mismo.
+    * Simetrica: `x.equals(y)` debe retornar el mismo resultado que `y.equals(x)`.
+    * Transitiva: si `x.equals(y)` y `y.equals(z)`, entonces se tiene `x.equals(z)`.
+    * Consistencia: El valor de `equals()` debiese cambiar solo si una propiedad que está contenida en este metodo cambia (la aleotoriedad no está permitida).
+
+Por ultimo, una buena implementacion del metodo `equals()` para el ejemplo de la clase `Movie` es:
+
+```java
+public class Movie{
+  private String title;
+  private String author;
+
+  public Movie(String title, String author) {
+    this.title = title;
+    this.author = author;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof Movie movie)) {
+      return false;
+    }
+    return hashcode() == movie.hashcode() && title.equals(movie.title) && 
+    author.equals(movie.author);
+  }
+}
+
+@Override
+public int hashcode() {
+  return Objects.hash(Movie.class, title, author);
+}
+```
+
+* Donde se omitió el operador `this` y se creó el objeto `movie` directamente sobre la condicion del `if`, es decir, ahora en la condicion se evalua si el objeto `o` es una instancia del objeto declarado `movie` de clase `Movie`
+* Se utiliza ademas el metodo `hashcode()` que calcula el valor de hash para una llave dada.
+  * **Contrato del metodo `hashcode()`:** Este metodo debe cumplir con las siguientes propiedades:
+    * Este metodo debe retornar el mismo valor siempre y cuando sea llamado por el mismo objeto durante la ejecucion. Este valor no necesita ser consistente entre una y otra ejecucion de una aplicacion.
+    * Si dos objetos son iguales respecto al metodo `equals()`, entonces al llamar al metodo `hashcode()`, cada uno de estos objetos debe retornar el mismo valor.
+    * Si dos objetos no son iguales respecto al metodo `equals()`, entonces al llamar al metodo `hashcode()`, cada uno de estos objetos no necesariamente debiese retornar distinto resultado, aun así, es una buena practica de programacion asegurarse de que esto no ocurra, programando eficientemente tanto `equals()` como `hashcode()`, es por esta razon que para el metodo `equals()`, la comparacion no solo es respecto al `hashcode()`, sino tambien respecto a las variables de instancias que posee.
