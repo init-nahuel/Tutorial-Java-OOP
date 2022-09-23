@@ -71,8 +71,9 @@ class B extends A {
 **Una interfaz es un grupo de metodos relacionados y que definen un tipo abstracto.**
 
 * Los metodos declarados en la interfaz deben ser obligatoriamente implementados en la clase en la cual se implemente la interfaz a traves de la keyword `implements`.
-* En caso de instanciar una variable de tipo alguna interfaz, esta variable debe instanciar un objeto de alguna clase que implemente dicha interfaz, sin embargo no es un buen diseño de programacion realizar este tipo de practicas.
+* En caso de declarar una variable de tipo interfaz, esta variable debe instanciar un objeto de alguna clase que implemente dicha interfaz, sin embargo no es un buen diseño de programacion realizar este tipo de practicas.
 * Una clase puede implementar mas de una interfaz.
+* Comunmente las clases abstractas implementan interfaces, aun asi las clases comunes tambien pueden.
 * **Implementar una interfaz define de manera formal el comportamiento que debe cumplir una clase.**
 * **Regla simple: Cuando se necesita más de un tipo de objeto para manejarlo en el contexto de una misma variable, entonces es necesario utilizar interfaces.**
 * Una interfaz puede tener cero o mas super interfaces:
