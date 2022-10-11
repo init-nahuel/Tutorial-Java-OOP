@@ -1,6 +1,6 @@
 # Ejemplo Point y Setter, Getters and ToString
 
-Supoongamos queremos modelar un punto de dos dimensiones, para este caso necesitaremos crear una clase `Point` con dos variables de instancias:
+Supongamos queremos modelar un punto de dos dimensiones, para este caso necesitaremos crear una clase `Point` con dos variables de instancias:
 
 ```java
 package cc3002.Point;
