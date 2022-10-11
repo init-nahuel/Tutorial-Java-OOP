@@ -37,7 +37,7 @@ Consideremos la libreria JDK de Java que posee el siguiente diagrama UML:
 
 **Una clase abstracta es un clase incompleta, que no puede ser instanciada, es decir no puede inicializarse un objeto de esta clase, en caso contrario el compilador reclamará**
 
-* Tiene que ser declarada con la keyword `abstract` y puede contener metodos abstractos que deben ser declarados y pueden o no estar implementadosen esta clase. En caso de no querer implementar el metodo y solamente declararlo se debe anteponer la keyword `abstract`, ej:
+* Tiene que ser declarada con la keyword `abstract` y puede contener metodos abstractos que deben ser declarados y pueden o no estar implementadose en esta clase. En caso de no querer implementar el metodo y solamente declararlo se debe anteponer la keyword `abstract`, ej:
   ```java
   public abstract String type();
   ```
