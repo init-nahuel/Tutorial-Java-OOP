@@ -97,6 +97,4 @@ Posible redifinicion (sobreescritura de metodos) en teoria:
 
 ## Cuando un metodo es subtipo de otro?
 
-Notacion:
-
-**nombre: tipos de los argumentos -> tipo del resultado**
+Notacion: **nombre: tipos de los argumentos -> tipo del resultado**
