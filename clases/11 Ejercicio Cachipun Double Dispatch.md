@@ -16,15 +16,18 @@ interface Hand {
 
 ```java
 class Stone implements Hand {
+  @Override
   public int play(Hand v) {
     return v.playWithStone (this);
-  }
+  }@Override
   public int playWithStone (Stone v) {
     return 0;
   }
+  @Override
   public int playWithScissor (Scissor v) {
     return -1;
   }
+  @Override
   public int playWithPaper (Paper v) {
     return 1;
   }
@@ -33,15 +36,19 @@ class Stone implements Hand {
 
 ```java
 class Paper implements Hand {
+  @Override
   public int play(Hand v) {
     return v.playWithPaper (this);
   }
+  @Override
   public int playWithStone (Stone v) {
     return -1;
   }
+  @Override
   public int playWithScissor (Scissor v) {
     return 1;
   }
+  @Override
   public int playWithPaper (Paper v) {
     return 0;
   }
@@ -50,15 +57,19 @@ class Paper implements Hand {
 
 ```java
 class Scissor implements Hand {
+  @Override
   public int play(Hand v) {
     return v.playWithScissor (this);
   }
+  @Override
   public int playWithStone (Stone v) {
     return 1;
   }
+  @Override
   public int playWithScissor (Scissor v) {
     return 0;
   }
+  @Override
   public int playWithPaper (Paper v) {
     return -1;
   }
