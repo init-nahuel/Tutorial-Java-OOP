@@ -137,7 +137,7 @@ public abstract class OutputStream implements Closeable, Flushable {
 **Excepciones que son internas a la aplicacion y de las cuales la aplicacion no puede recuperarse o anticiparlas. Por ejemplo, bugs, errores logicos, un mal uso de una API, NullPointerException.**
 
 * La aplicacion puede atrapar este tipo de excepciones, pero hace mas sentido eliminar el bug que causa que la excepcion ocurra.
-* **Las excepciones en tiempo de ejecucion no estan sujetas a CAtch or Specify Requirement**.
+* **Las excepciones en tiempo de ejecucion no estan sujetas a Catch or Specify Requirement**.
 * Runtime exceptions son aquellas indicadas por `RuntimeException` y sus subclases.
 
 **OBS: Errores y Runtime exceptions son conocidas como excepciones no chequeadas.**
@@ -146,7 +146,7 @@ public abstract class OutputStream implements Closeable, Flushable {
 
 * En caso de utilizar excepciones de chequeo, lo usual es crear una subclase de `java.lang.Exception` y utilizar `throws`, `try` y `catch`, para lanzar la excepcion y y agregar un apropiado manejo de esta en caso de que el procedimiento de ejecucion del programa no siga lo esperado.
 
-* A excepcion de algun caso especial, se puede definir un handler, o manje de excepcion, para algun error, es decir, una subclase de `Error`. Por ejemplo, en caso de que la aplicacion consuma demasiada memoria, avisarle al usuario que no hay mas memoria libre.
+* A excepcion de algun caso especial, se puede definir un handler, o manejo de excepcion, para algun error, es decir, una subclase de `Error`. Por ejemplo, en caso de que la aplicacion consuma demasiada memoria, avisarle al usuario que no hay mas memoria libre.
 
 **OBS: Es muy probable que no sea necesario crar una subclase de `Error` o `RuntimeError`.**
 
@@ -158,7 +158,7 @@ Lanzar un objeto se realiza mediante la keyword `throw`:
 throw object
 ```
 
-* Doonde `object` es un objeto que pose el tipo lanzable (`throwable`).
+* Donde `object` es un objeto que pose el tipo lanzable (`throwable`).
 
 # Atrapando mas de una excepcion
 
