@@ -87,7 +87,7 @@ class C extends B {
 
 # Observacion respecto a overriding de metodos
 
-Posible redifinicion (sobreescritura de metodos)en teoria:
+Posible redifinicion (sobreescritura de metodos) en teoria:
 
 * **No hay redifinicion**: misma firma.
 * **Redifinicion arbitraria**: solo exige conservacion del nombre del metodo.
@@ -100,11 +100,3 @@ Posible redifinicion (sobreescritura de metodos)en teoria:
 Notacion:
 
 **nombre: tipos de los argumentos -> tipo del resultado**
-
-# Testing
-
-Tres practicas de testing:
-* Durante el desarrollo, cuando se necesita agregar una nueva funcionalidad, **escribe los tests primero**, el programa se encontrará hecho cuando los test se ejecuten correctamente.
-* Cuando se necesite rediseñar un software para agregar nuevas caracteristicas, haz refactors en pequeños pasos, luego **ejecuta los tests, y regression tests (test ateriores que se ejecutaban correctamente), despues de cada refactoring**.
-* Durante el debugging, si se encuentra un defecto en el codigo, **escribe un test** que demuestre el defecto, entonces realiza el debug hasta que el test escrito se ejecute correctamente.
-
