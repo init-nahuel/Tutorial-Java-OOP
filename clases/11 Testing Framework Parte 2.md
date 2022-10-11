@@ -153,4 +153,3 @@ class MoneyBag implements IMoney {
 * El codigo se vuelve mas facil de testear.
 * Idealmente, el uso de `instanceof` sólo debe ser usado en el metodo `equals()`.
 * El costo de agregar un nuevo tipo es muy bajo.
-
