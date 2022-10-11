@@ -3,22 +3,24 @@ Algunas caracteristicas de este lenguaje son:
 * Java compila a traves de JVM (Java Virtual Machine).
 * Para compilar se utiliza el comando: `javac hola.java`
 
-  Esto crea un archivo binario `.bin`
+  * Esto crea un archivo binario `.bin`
 * Para ejecutar se usa: `java hola`
 
 # Hola mundo
 Para crear nuestro primer hola mundo, podemos escribir el siguiente codigo:
 ```java
-public class HelloWorld{
-  public static void main(String[] args){
+public class HelloWorld {
+  public static void main(String[] args) {
     System.out.println("Hellor World");
   }
 }
 ```
-Lo que se crea es una clase con el nombre `HelloWorld`, en el cual existe una funcion `main()`, funcion principal que se ejecutara, esta debe poseer siempre la misma platilla (por ahora), es decir:
+Lo que se crea es una clase con el nombre `HelloWorld`, en el cual existe una funcion `main()`, funcion principal que se ejecutará, esta debe poseer siempre la misma plantilla (por ahora), es decir:
+
 ```java
 public static void main(String[] args)
 ```
+
 * `public`: Indica que la funcion/clase es publica, por tanto, se puede acceder desde otros archivos.
 * `static`: Con esto no es necesario declarar un objeto asociado a la clase para llamar a `main()`, es decir, se va a llamar desde afuera del programa.
 * `void`: Tipo de dato que retorna la funcion, en este caso no retorna nada.
@@ -27,6 +29,7 @@ public static void main(String[] args)
 **A la hora de crear la funcion `main()`, esta debe estar en una sola clase, usualmente la clase principal, tambien llamada `main`.**
 
 # Constructor y Metodos para Clases
+
 Para esquematizar el funcionamiento de los metodos en las clases utilizaremos un ejemplo que aplique estos.
 ## Ejemplo Neurona
 
@@ -66,12 +69,12 @@ public class Neuron{
   * En el contructor se asignan las variables de instancias, es importante que el nombre de la funcion sea el mismo que el de la clase, pues en caso contrario no compilará. El constructor estará encargado de crear los objetos asociados a la clase, por tanto la funcion no retorna.
 
   **OBS: Si no se declara el constructor, java automaticamente crea uno que no recibe ningun parametro.**
-* Comunmente las **variables de instancias deben ser privadas**, es decir, se debe declarar como `private`, esto implica que solo son conocidas por la clase y sus metodos, donde esto ultimo solo es correcto en caso de que las variables de instancias son asignadas por medio del constructor, en caso contraria, los metodos no las reconocerán.
+* Comunmente las **variables de instancias deben ser privadas**, es decir, se debe declarar como `private`, esto implica que solo son conocidas por la clase y sus metodos, donde esto ultimo solo es correcto en caso de que las variables de instancias son asignadas por medio del constructor, en caso contrario, los metodos no las reconocerán.
 * Para llamar a otros metodos que se encuentran dentro de la misma clase la manera correcta de declararlos es `this.metodo()`, pues como se verá mas adelante surge un problema en caso de no declararlos así debido a la herencia de clases.
-* Tanto metodos como variables pueden ser llamados por instancias de clases a traves de `objeto.metodo()` u `objeto.var` respectivamente y siempre y cuando estos no sean `private`.
+* Tanto metodos como variables pueden ser llamados por instancias de clases a traves de `objeto.metodo()` u `objeto.var` respectivamente, siempre y cuando estos no sean `private`.
 
 
-Ahora para testear el programa creamos otra clase que se encarge tanto de crear un objeto de la clase `Neruon` como de probar los metodos de esta, es decir, necesitaremos crear una funcion `main()`:
+Ahora para testear el programa creamos otra clase que se encarge tanto de crear un objeto de la clase `Neuron` como de probar los metodos de esta, es decir, necesitaremos crear una funcion `main()`:
 
 ```java
 public class NeuronExample{
@@ -88,9 +91,11 @@ public class NeuronExample{
 **En el caso de metodos estaticos (`static`), estos no son vistos por la clase, solo son vistos los metodos de instanciacion que no son privados. Por ejemplo, el metodo `main()` es llamado directamente por la JVM sin instanciar un objeto de la clase en donde se encuentre, es decir, se llama `NombreClase.main()`. Por otra parte, si una variable es estatica, implica que el sector de memoria es exactamente el mismo para este y para cualquier variable a la cual se le asigne esta variable estatica.**
 
 # Herencia de Clases y `super()`
-Nuevamente para esquematizar la Herencia de Clase se utilizara de ejemplo la clase `Neurona` y otros complementos.
+
+Nuevamente para esquematizar la Herencia de Clase se utilizará de ejemplo la clase `Neurona` y otros complementos.
 
 ## Ejemplo ReluNeuron
+
 Para este caso crearemos una neurona un poco diferente, el valor de `z` será el mismo, sin embargo, la salida no, es decir, necesitaremos modificar el metodo `feed()`, pero no asi `computeZ()`. 
 
 ```java
@@ -149,14 +154,15 @@ n.computeZ(1,1);
 * **En tiempo de compilacion**, los metodos que son chequeados por el compilador, son los metodos del tipo de la variable `n`, es decir, de la clase `Neuron`.
 * **En tiempo de ejecucion**, `n` se comportará como un objeto de tipo `ReluNeuron` que al llamar al metodo `computeZ()`, lo buscará en esta subclase, sin embargo como no existe, seguirá la busqueda en la clase padre, es decir, en `Neuron`. Se ejecuta `Neuron.computeZ()`.
 
-**OBS:** A parte, el compilador chequea si la clase es subclase (o subclase de una subclase ...) de la clase `Neuron`, pues en caso contrario no se podran utilizar los metodos heredados.
+**OBS:** A parte, el compilador chequea si la clase es subclase (o subclase de una subclase ...) de la clase `Neuron`, pues en caso contrario no se podrán utilizar los metodos heredados.
 
 ```java
 Neuron n = new ReluNeuron(1,1,-0.5);
 n.feed(1,1);
 ```
+
 * **En tiempo de compilacion**, el compilador chequea que en `Neuron` exista el metodo `feed()`. Ademas, ve si la clase `ReluNeuron` es subclase de `Neuron`.
-* **En tiempo de ejecucion**, buscara el metodo en la clase `ReluNeuron` y como este existe se ejecuta `ReluNeuron.feed()`.
+* **En tiempo de ejecucion**, buscará el metodo en la clase `ReluNeuron` y como este existe se ejecuta `ReluNeuron.feed()`.
 
 # Terminologia
 
@@ -166,15 +172,15 @@ Un **objeto** comprende los mensajes heredados y definidos de su clase. Tambien 
 
 # Clase
 
-Una **clase** en principio se puede observar como una fabrica de objetos. Esta definido como un conjunto de declaraciones de variables y definiciones de metodos: `class = name + variables + methods + superclass`
+Una **clase** en principio se puede observar como una fabrica de objetos. Está definido como un conjunto de declaraciones de variables y definiciones de metodos: `class = name + variables + methods + superclass`
 
 **OBS:** En java: `class = name + variables + methods + superclass + interfaces + static methods + ...`
 
-# Metodo 
+# Metodo
 
 Un **metodo** es un pedazo de codigo ejecutable, este termina cuando:
   * No existen mas instrucciones a ejecutar.
-  * Se alcanza la declaracion `return`
+  * Se alcanza la declaracion `return`.
   * Se alcanza una excepcion.
 
 Se pueden acceder a las **pseudo-variables** `this` y `super()` (solo en un metodo de instancia, no en metodos estaticos).
@@ -203,4 +209,4 @@ list.add(1.0);
 list.add(2.0);
 ```
 
-**OBS:** Java soporta solo una versin debil del polimorfismo parametrico.
+**OBS:** Java soporta solo una version debil del polimorfismo parametrico.
