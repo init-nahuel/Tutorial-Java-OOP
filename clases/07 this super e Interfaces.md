@@ -64,7 +64,7 @@ class B extends A {
   }
 }
 ```
-* El resultado de `new B().test()` es `true`, pues de las definiciones de las seudovariables tanto `super` como `this` se refieren al mismo objeto que se creó como instancia, `super` solamente busca en la clase padre considerando que el objeto es de la clase `B`. Se puede ver de la siguiente manera: `this.getClass()` hace referencia al propio objeto y busca en esta el metodo `getClass()`, pero como no existe en esta clase, sube en la jerarquia hasta encontrarlo, en este caso en la clase `Object()`, pero se sigue aplicando al objeto de clase `B`. Por otra parte, `super.getClass()` realiza la busqueda del metodo en la clase superior directamente, luego el argumento siguiente es el mismo.
+* El resultado de `new B().test()` es `true`, pues de las definiciones de las seudovariables tanto `super` como `this` se refieren al mismo objeto que se creó como instancia, `super` solamente busca en la clase padre considerando que el objeto es de la clase `B`. Se puede ver de la siguiente manera: `this.getClass()` hace referencia al propio objeto y busca en esta el metodo `getClass()`, pero como no existe en esta clase, sube en la jerarquia hasta encontrarlo, en este caso en la clase `Object()`, **pero se sigue aplicando al objeto de clase `B`**. Por otra parte, `super.getClass()` realiza la busqueda del metodo en la clase superior directamente, luego el argumento siguiente es el mismo.
 
 # Interfaces de Java
 
