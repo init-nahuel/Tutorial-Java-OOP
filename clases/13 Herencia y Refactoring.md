@@ -1,5 +1,11 @@
 # Herencia
 
+## Mecanismos de Herencia
+
+Los lenguajes orientados a objetos, basados en clases, utilizan herencia de diferentes maneras:
+
+![](img/mecanismosHerencia.PNG)
+
 Dado el ejemplo del juego del gato, existen diversos juegos de este tipo, por ejemplo go-moku. Con esto en mente se plantean los siguientes conceptos relacionados a herencia:
 * **Jerarquia Conceptual:** Go-moku al igual que Tic Tac Toe son juegos de mesa (`BoardGame`).
 * **Polimorfismo:** Las instancias de Gomoku al igual que TicTacToe pueden ser manipuladas como instancias de juegos de mesa `BoardGame` por el cliente del programa.
