@@ -8,13 +8,22 @@
 
 * Los tests deben ser deterministas y repetibles.
 * Se deberian testear "todas" las funcionalidades:
-  * Cada interfaz (**black-box testing**).
+  * Cada interfaz (**black-box testing**). Se ve el programa como una caja negra, no se ve el codigo implementado.
   * Todas las casos bordes.
   * Cada caracteristica (feature).
-  * Cada linea de codigo (**white-box testing**).
-  * todo lo que puede salir mal!.
+  * Cada linea de codigo (**white-box testing**). Se ve el codigo para evaluar los test que se realizan, por ejemplo si hay un if else, entonces debo testear la parte en que se ejecuta el if y cuando se ejecuta el else.
+  * Todo lo que puede salir mal!.
 
-# Ejemplo
+# Interfaces en Java
+
+Las interfaces reducen el acoplamiento entre objetos y sus clientes. 
+
+* Los clientes deben depender de una interfaz, no de una implementación ... así que
+las implementaciones no necesitan extender una clase específica.
+
+**OBS:** El cliente puede ser otra clase que en su implementacion ocupe como tipo la interfaz de un objeto.
+
+# Ej. Regression Test
 
 ## StackInterface
 
@@ -39,7 +48,7 @@ es necesario utilizar una interfaz**
 
 ## Testing Stack
 
-La primera version de testeo de un Stack chequeará los metodos y casos bordes:
+Definimos un test de regresion para testear `StackInterface`:
 
 ```java
 public class LinkStackTest {
@@ -48,7 +57,7 @@ public class LinkStackTest {
   @BeforeEach
   public void setUp() {
     stack = new LinkStack();
-  }
+  } 
 
   @Test
   public void empty() {
@@ -57,6 +66,9 @@ public class LinkStackTest {
   }
 }
 ```
+
+* Aca tenemos un cliente que es `LinkStackTest`, pues ocupa instancias de tipo `StackInterface` en su implementacion.
+
 **OBS:** Inicialmente el Stack se encuentra vacio.
 
 Ahora construimos un caso de testeo y chequeamos las condiciones mas obvias de tal caso:
