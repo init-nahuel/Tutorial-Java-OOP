@@ -265,7 +265,7 @@ public class MyApp {
 
 # Hanlding States
 
-Esta metodologia es utila para manejar los estados de un objeto.
+Esta metodologia es util para manejar los estados de un objeto.
 
 ![](img/handlingStates.PNG)
 
