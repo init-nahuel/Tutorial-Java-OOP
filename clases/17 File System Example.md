@@ -310,4 +310,3 @@ En este sentido:
 * La mayoria de los metodos en la clase `Directory` son similares en el sentido de que se realiza un recorrido recursivo.
 
 **El costo de agregar nuevas operaciones es alto.**
-
