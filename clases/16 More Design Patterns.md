@@ -41,9 +41,9 @@ delegandolo a sus partes que lo componen.
 
 ![](img/UMLCompositePattern.PNG)
 
-* El elemento compuesto `Composite` contienen una lista de elementos `Component` y por tanto estos pueden ser de tipo `Leaf` o `Composite`.
+* El elemento compuesto `Composite` contiene una lista de elementos `Component` y por tanto estos pueden ser de tipo `Leaf` o `Composite`.
 
-* Las operaciones `operation()` se redefinen en las hojas y en los elementos compuestos, donde en este ultimo caso se baja hasta las hojas para realizar la operacion.
+* Las metodos `operation()` se redefinen en las hojas y en los elementos compuestos, donde en este ultimo caso se baja hasta las hojas para realizar la operacion.
 
 ![](img/UMLCompositePatternInterface.PNG)
 
@@ -51,11 +51,11 @@ delegandolo a sus partes que lo componen.
 
 Composite permite tratar una unica instancia de un objeto de la misma forma en que se trata un grupo de estos objetos.
 
-Por ejemplo, el arbol de la imagee consiste de arboles (subarboles) y hojas como objetos.
+Por ejemplo, el arbol de la imagen consiste de arboles (subarboles) y hojas como objetos.
 
 ![](img/treeComposite.PNG)
 
-Supongamos ahora queremos modelar el mundo, esto es primero estan los continentes, luego los paises y ciudades.
+Supongamos ahora queremos modelar el mundo, primero estan los continentes, luego los paises y ciudades.
 
 * `Component`, `Composite`:
   ```java
@@ -138,7 +138,7 @@ Las consecuencias de este patron de diseño son:
 
 ![](img/UMLFactoryPattern.PNG)
 
-* La fabrica `Factory` retorna productos que cumplen con la interfaz `Product`.\
+* La fabrica `Factory` retorna productos que cumplen con la interfaz `Product`.
 
 ## Ejemplo juego Lara Croft
 
@@ -180,14 +180,14 @@ Las consecuencias de este patron de diseño son:
   }
   ```
 * Test:
-```java
-@Test
-public void test() {
-  Lara lara = new Lara();
-  lara.ammoFactory(new ArrowFactory());
-  assertEquals(lara.fire().getClass(), Arrow.class);
-}
-```
+  ```java
+  @Test
+  public void test() {
+    Lara lara = new Lara();
+    lara.ammoFactory(new ArrowFactory());
+    assertEquals(lara.fire().getClass(), Arrow.class);
+  }
+  ```
 
 ## Fabrica e inicializacion de objetos
 
@@ -230,7 +230,7 @@ Una fabrica puede simplificar la inicializacion:
 * Un patrón singleton (Singleton Pattern) asegura que no se pueda obtener más de una instancia
 de una clase.
 
-**Debe ser utilizado con cuidado por introduce un estado global.**
+**Debe ser utilizado con cuidado porque introduce un estado global.**
 
 ## Ejemplo Lara Croft
 
@@ -262,7 +262,7 @@ public class Lara {
 
 La creación de muchos objetos puede ser la causa de un mal rendimiento de la memoria.
 
-* El almacenamiento de objetos de vida corta en una tabla permite reutilizarlos fácilmente
+* El almacenamiento de objetos de vida corta en una tabla hash permite reutilizarlos fácilmente
 
 ## Ejemplo UML Flyweight Pattern
 
