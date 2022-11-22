@@ -22,7 +22,7 @@ llama a las operaciones de una subclase y no al revés.
 permitir a los programadores de aplicaciones extender fácilmente la funcionalidad de
 las clases del framework.
 
-## UML general Template Method
+## UML Template Method
 
 ![](img/umlTemplateMethod.PNG)
 
@@ -37,7 +37,7 @@ las clases del framework.
 Normalmente, los objetos compuestos (**composite objects**) implementan su comportamiento
 delegandolo a sus partes que lo componen.
 
-## UML Template Method
+## UML Composite Pattern
 
 ![](img/UMLCompositePattern.PNG)
 
