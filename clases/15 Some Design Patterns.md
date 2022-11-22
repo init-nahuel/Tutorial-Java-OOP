@@ -43,7 +43,7 @@ class Rectangle implements Shape {
 
 ![](img/proxyUML.PNG)
 
-* Como se observa la clase `Proxy` tendrá como variable de instancia un objeto de tipo `RealSubject` al cual le hará pre o post procesamiento.
+* Como se observa la clase `Proxy` tendrá como variable de instancia un objeto de tipo `RealSubject` (pero al instanciarla se declara de tipo `Subject`) al cual le hará pre o post procesamiento.
 
 ## Ejemplo
 
