@@ -7,7 +7,7 @@
 
 Un adaptador convierte la interfaz de una clase hacia otra que espera el cliente.
 * El cliente y el objeto adaptado mantienen la indepencencia, no se conocen entre ellos.
-* Un adaptador agregar un nivel extra de indireccion.
+* Un adaptador agrega un nivel extra de indireccion.
 * La clase adaptadora tendrá como variable de instancia la clase que se esta adaptando para que la ocupe el cliente.
 
 Este patron tambien se conoce como **Wrapper**.
@@ -129,13 +129,13 @@ recibir notificaciones.
 
 ## Problema Observer Pattern
 
-Veamo el siguiente ejemplo: Un boton espera que sus observadores implementen la interfaz `ActionListener`, sin embargo la notificacion puede tardar si es que existen demasiados observadores (recorrer la lista de observadores tardará mucho) o si los propios observadores tambien son observables.
+Veamos el siguiente ejemplo: Un boton espera que sus observadores implementen la interfaz `ActionListener`, sin embargo la notificacion puede tardar si es que existen demasiados observadores (recorrer la lista de observadores tardará mucho) o si los propios observadores tambien son observables.
 
 ## Ejemplo
 
 Sea un objeto que es observado de tipo `EventSource` y un objeto observable de tipo `Observable`.
 
-* Observeble:
+* Observable:
   
 ```java
 package obs;
@@ -296,7 +296,7 @@ while ((line = in.readLine()) != null) {
 ```
 * Dada una variable de instancia, preguntamos su estado para ver que hacemos.
 * Esta forma es incorrecta pues observamos que existen muchas condiciones posibles que probablemente se pueda organizar de mejor manera.
-* Notemos que si aparece un nuevo estado deberá agregarse al codigo.
+* Notemos que si aparece un nuevo estado, deberá agregarse al codigo.
 
 De esta manera nace el siguiente patron de diseño:
 
@@ -305,11 +305,11 @@ De esta manera nace el siguiente patron de diseño:
 ![](img/statePattern.PNG)
 
 * Los estados saben como cambiar/reaccionar.
-* Como se observa el `Context` tiene una variable instancia de tipo `State` con la cual sabe el estado, ademas `State` tambien posee una variable de instancia de tipo `Context` para conocer el contexto.
+* Como se observa el `Context` tiene una variable de instancia de tipo `State` con la cual sabe el estado, ademas `State` tambien posee una variable de instancia de tipo `Context` para conocer el contexto.
 * `Context` maneja el evento, delegando esta responsabilidad a `State`. Cada estado va a saber cuando se produce un cambio de estado o no, enviando un error en el ultimo caso.
 * `Context` puede estar en un estado `ConcreteState1` o `ConcreteState2`, alguno de estos dos estados cambiará la variable de instancia `state` de `Context`.
 * Es posible agregar nuevos metodos a la clase `Context`, pero no redefinir los existentes.
-* Adicionalmente es posible editar todos los metodos de manejos de eventos `handleEvent()` lara que lanzen un error por defecto para que al momento de que los objetos de estados concretos utilicen alguno de estos que no se haya redifinido, pues no lo utiliza, se lance la advertencia.
+* Adicionalmente es posible editar todos los metodos de manejos de eventos `handleEvent()` para que lanzen un error por defecto para que al momento de que los objetos de estados concretos utilicen alguno de estos que no se haya redifinido, pues no lo utiliza, se lance la advertencia.
 
 **OBS: La variante de esta metodologia que utiliza una interfaz en vez de una clase para `State` tambien existe, sin embargo esto puede producir codigo duplicado, pues no necesariamente queremos redefinir o heredar todos los metodos de la clase `State` para las subclases de estados concretos, probablemente solo se necesitará redefinir un par de metodos de los heredados.**
 
@@ -348,22 +348,22 @@ Veamos el ejemplo de una caja fuerte que puede abrirse, cerrarse o bloquearla.
 * `State`:
 
   ```java
-  public class Safe {
-    private State state;
-    public Safe () {
-      this.setState(new Open());
+  public class State {
+    private Safe safe;
+    public void setSafe(Safe safe) {
+    this.safe = safe;
     }
-    void setState(State aState) {
-      state = aState;
-      state.setSafe(this);
+    protected void changeState(State state) {
+    safe.setState(state);
     }
-    public void open() { state.open(); }
-    public void close() { state.close(); }
-    public void lock() { state.lock(); }
-    public void enterCode() { state.enterCode(); }
-    public boolean isOpen() { return state.isOpen(); }
-    public boolean isClosed() { return state.isClosed(); }
-    public boolean isLocked() { return state.isLocked(); }
+    void error() { throw new AssertionError(“Wrong state”); }
+    void open() { error(); }
+    void close() { error(); }
+    void enterCode() { error(); }
+    void lock() { error(); }
+    public boolean isOpen() { return false; }
+    public boolean isClosed() { return false; }
+    public boolean isLocked() { return false; }
   }
   ```
   * Por defecto los metodos de manejo de eventos lanzan error.
