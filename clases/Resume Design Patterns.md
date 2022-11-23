@@ -165,8 +165,13 @@ Un Template Method factoriza la parte comun de algoritmops similares y delega el
 
 * La fabrica `Factory` retorna productos que cumplen con la interfaz `Product`.
 
-![](img/terminologiaFactoryPattern.PNG)
-* Arriba se observa el diagrama UML para lenguajes que no poseen interfaces, por tanto heredan de clases abstractas.
+## UML Abstract Factory Pattern
+
+![](img/UMLAbstractFactoryPattern.PNG)
+
+## UML Factory Method Pattern
+
+![](img/UMLFactoryMethodPattern.PNG)
 
 # Singleton Pattern
 
