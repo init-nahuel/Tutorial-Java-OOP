@@ -18,6 +18,10 @@
   * **Desacopla** nuestro programa de la implementacion del servicio.
   * Se **ecapsula los cambio** en el servicio haciendo que cualquier cambio en la API afecte unicamente al adapter y no al resto del programa
 
+## UML Adapter Pattern
+
+![](img/UMLAdapterV2.PNG)
+
 ## Ejemplo
 ```java
 class LegacyRectangle implements Shape {
@@ -89,6 +93,10 @@ class Rectangle implements Shape {
 
 ![](img/observerUML.PNG)
 
+## UML Observer Pattern (Publisher/ Subscriber)
+
+![](img/UMLObserverV2.PNG)
+
 # State Pattern
 
 ![](img/statePattern.PNG)
@@ -107,7 +115,7 @@ class Rectangle implements Shape {
 * Problema: 
   * ¿Como se implementa un algoritmo generico, posponiendo algunas partes a las subclases?
 * Solucion:
-  * DEfinirlo como un metodo plantilla (Template Method).
+  * Definirlo como un metodo plantilla (Template Method).
 * Consecuecias:
   * Conducen a una estructura de control invertida, ya que ua clase padre llama a las operacioes de una subclase y no al reves.
   * Se utiliza en la mayoria de los frameworks para permitir a los programadores de aplicaciones extender facilmente su funcionalidad de las clases del framework.
